@@ -15,7 +15,7 @@ BINS=pca-ellipses pca-ellipsoids pca-dendrogram pca-bootstrap pca-distances
 BINS+= pca-overlap pca-stats pca-rand pca-maps
 
 # output manual pages.
-MANS=$(addsuffix .1,$(BINS))
+MANS=$(addprefix man/,$(addsuffix .1,$(BINS)))
 
 # intermediate 'non-binary' object code files.
 LIBOBJS=pca-utils.o pca-utils-math.o pca-utils-rand.o pca-utils-stat.o
