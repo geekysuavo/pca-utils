@@ -11,19 +11,24 @@ BINDIR=$(PREFIX)/bin
 MANDIR=$(PREFIX)/man/man1
 
 # output binaries.
-BINS=pca-ellipses pca-ellipsoids pca-dendrogram pca-bootstrap pca-distances
-BINS+= pca-overlap pca-stats pca-rand pca-maps
+BIN=pca-ellipses pca-ellipsoids pca-dendrogram pca-bootstrap pca-distances
+BIN+= pca-overlap pca-stats pca-rand pca-maps
+BINS=$(addprefix bin/,$(BIN))
 
 # output manual pages.
 MANS=$(addprefix man/,$(addsuffix .1,$(BINS)))
 
 # intermediate 'non-binary' object code files.
-LIBOBJS=pca-utils.o pca-utils-math.o pca-utils-rand.o pca-utils-stat.o
-LIBOBJS+= pca-utils-list.o pca-utils-dist.o pca-utils-tree.o pca-utils-draw.o
-LIBOBJS+= pca-utils-getopt.o
+LIBOBJ=pca-utils.o pca-utils-math.o pca-utils-rand.o pca-utils-stat.o
+LIBOBJ+= pca-utils-list.o pca-utils-dist.o pca-utils-tree.o pca-utils-draw.o
+LIBOBJ+= pca-utils-getopt.o
+
+# full object file paths.
+LIBOBJS=$(addprefix src/,$(LIBOBJ))
+BINOBJS=$(addsuffix .o,$(BINS))
 
 # all object code files.
-OBJS=$(LIBOBJS) $(addsuffix .o,$(BINS))
+OBJS=$(LIBOBJS) $(BINOBJS)
 
 # specification of compilation suffixes.
 .SUFFIXES: .c .o
@@ -34,7 +39,7 @@ all: $(OBJS) $(BINS)
 # source compilation target.
 .c.o:
 	@echo " CC $^"
-	@$(CC) $(CFLAGS) -c $^ -o $@
+	@$(CC) $(CFLAGS) -I./src -c $^ -o $@
 
 # binary linkage target.
 $(BINS): $(OBJS)
