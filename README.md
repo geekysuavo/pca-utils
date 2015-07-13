@@ -27,7 +27,7 @@ The **pca-utils** project provides a set of executables that answer these
 questions. The executables allow for generating dendrograms, distance
 matrices, class ellipses and ellipsoids based on a set of scores.
 
-### Installing
+## Installing
 
 This software is highly portable. As long as you have a recent enough glibc,
 pca-utils should compile and install without incident. You can build and
@@ -44,6 +44,9 @@ install **pca-utils** as follows:
 By default, the **pca-utils** binaries will be installed into _/usr/bin_,
 and their manual pages will be installed into _/usr/share/man/man1_. If you
 need to install somewhere else, you'll need to modify the Makefile.
+
+For more information on how to use the **pca-utils** binaries, please consult
+the manual pages.
 
 ## Licensing
 
