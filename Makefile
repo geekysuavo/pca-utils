@@ -16,7 +16,7 @@ BIN+= pca-overlap pca-stats pca-rand pca-maps
 BINS=$(addprefix bin/,$(BIN))
 
 # output manual pages.
-MANS=$(addprefix man/,$(addsuffix .1,$(BINS)))
+MANS=$(addprefix man/,$(addsuffix .1,$(BIN)))
 
 # intermediate 'non-binary' object code files.
 LIBOBJ=pca-utils.o pca-utils-math.o pca-utils-rand.o pca-utils-stat.o
