@@ -1,0 +1,62 @@
+.\" -*- nroff -*-
+.ds g \" empty
+.ds G \" empty
+.de Tp
+.ie \\n(.$=0:((0\\$1)*2u>(\\n(.1u-\\n(.iu)) .TP
+.el .TP "\\$1"
+..
+.TH PCA-ELLIPSES 1 "13 Jul 2015" "pca-utils version 20150713"
+.SH NAME
+pca-ellipses \- build 2D scores plots with confidence ellipses from scores
+.SH SYNOPSIS
+.B pca-ellipses
+[
+.B \-h
+]
+.LP
+.B pca-ellipses
+\-i \fIINFILE\fR [\fIOPTIONS\fR]
+.SH DESCRIPTION
+.PP
+Build a scores plot from PCA/PLS scores in \fBINFILE\fR. The 95% confidence
+ellipses may be written to a text file, or a postscript file may be directly
+written that contains all required information.
+.TP
+\fB\-h\fR, \fB-\-help\fR
+display a short help message.
+.TP
+\fB\-i\fR, \fB\-\-input\fR \fIINFILE\fR
+scores list input file, formatted according to the list file exported from
+Umetrics SIMCA-P+ software. See pca-rand(1) for more information.
+.TP
+\fB\-o\fR, \fB\-\-output\fR \fIOUTFILE\fR
+filename of output postscript file to write to, instead of standard output.
+.TP
+\fB\-k\fR, \fB\-\-key\fR
+print a key/legend with symbols that correspond to the points in the plot and
+to any dendrograms made from the same \fIINFILE\fR.
+.TP
+\fB\-1\fR, \fB\-\-component1\fR \fIPC1\fR
+percentage contribution of the total variance from principal component number
+one, for use with PCA scores plots.
+.TP
+\fB\-2\fR, \fB\-\-component2\fR \fIPC2\fR
+percentage contribution of the total variance from principal component number
+two, for use with PCA scores plots.
+.SH AUTHOR
+Bradley Worley <geekysuavo@gmail.com>
+.SH COPYRIGHT
+Copyright \(co 2015 Bradley Worley.
+.br
+This is free software. You may redistribute copies of it under the terms of
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
+There is NO WARRANTY, to the extent permitted by law.
+.SH "SEE ALSO"
+.BR pca-bootstrap(1),
+.BR pca-dendrogram(1),
+.BR pca-distances(1),
+.BR pca-ellipsoids(1),
+.BR pca-overlap(1),
+.BR pca-stats(1),
+.BR pca-rand(1),
+.BR pca-maps(1)

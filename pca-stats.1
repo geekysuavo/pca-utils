@@ -1,0 +1,48 @@
+.\" -*- nroff -*-
+.ds g \" empty
+.ds G \" empty
+.de Tp
+.ie \\n(.$=0:((0\\$1)*2u>(\\n(.1u-\\n(.iu)) .TP
+.el .TP "\\$1"
+..
+.TH PCA-STATS 1 "13 Jul 2015" "pca-utils version 20150713"
+.SH NAME
+pca-stats \- print basic group statistics from scores
+.SH SYNOPSIS
+.B pca-stats
+[
+.B \-h
+]
+.LP
+.B pca-stats
+\-i \fIINFILE\fR [\fIOPTIONS\fR]
+.SH DESCRIPTION
+.PP
+Calculates basic group statistics from PCA/PLS scores in \fBINFILE\fR. Just
+prints the mean, covariance, and eigendecomposition of the covariance for
+each group in the scores file. The J2 statistic for each group is also
+calculated and printed.
+.TP
+\fB\-h\fR, \fB-\-help\fR
+display a short help message.
+.TP
+\fB\-i\fR, \fB\-\-input\fR \fIINFILE\fR
+scores list input file, formatted according to the list file exported from
+Umetrics SIMCA-P+ software. See pca-rand(1) for more information.
+.SH AUTHOR
+Bradley Worley <geekysuavo@gmail.com>
+.SH COPYRIGHT
+Copyright \(co 2015 Bradley Worley.
+.br
+This is free software. You may redistribute copies of it under the terms of
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
+There is NO WARRANTY, to the extent permitted by law.
+.SH "SEE ALSO"
+.BR pca-bootstrap(1),
+.BR pca-dendrogram(1),
+.BR pca-distances(1),
+.BR pca-ellipses(1),
+.BR pca-ellipsoids(1),
+.BR pca-overlap(1),
+.BR pca-rand(1),
+.BR pca-maps(1)

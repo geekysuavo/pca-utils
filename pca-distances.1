@@ -1,0 +1,86 @@
+.\" -*- nroff -*-
+.ds g \" empty
+.ds G \" empty
+.de Tp
+.ie \\n(.$=0:((0\\$1)*2u>(\\n(.1u-\\n(.iu)) .TP
+.el .TP "\\$1"
+..
+.TH PCA-DISTANCES 1 "13 Jul 2015" "pca-utils version 20150713"
+.SH NAME
+pca-distances \- build distance matrices from scores using various metrics
+.SH SYNOPSIS
+.B pca-distances
+[
+.B \-h
+]
+.LP
+.B pca-distances
+\-i \fIINFILE\fR [\fIOPTIONS\fR]
+.SH DESCRIPTION
+.PP
+Build a distance matrix from PCA/PLS scores in \fBINFILE\fR. The matrix can
+be built using various distance metrics defined below.
+.TP
+\fB\-h\fR, \fB-\-help\fR
+display a short help message.
+.TP
+\fB\-i\fR, \fB\-\-input\fR \fIINFILE\fR
+scores list input file, formatted according to the list file exported from
+Umetrics SIMCA-P+ software. See pca-rand(1) for more information.
+.TP
+\fB\-m\fR, \fB\-\-metric\fR \fIMETRIC\fR
+distance metric to use. Supported metrics are defined below.
+.TP
+\fB\-D\fR, \fB\-\-divisions\fR \fINDIV\fR
+number of grid divisions to create while approximating probability densities
+for grid-based distance metrics.
+.SH "DISTANCE METRICS"
+.TP
+.B EUC: Euclidean
+the square root of the dot product of the displacement vector between the
+two group means. special case of the mahalanobis distance that assumes a
+covariance matrix equal to the identity.
+.TP
+.B MAH: Mahalanobis
+closely related to the square root of the exponent of a multivariate normal
+density function. the covariance matrix used to weight the displacement is
+a weighted sum of the covariance matrices of each group; this implies the
+assumption that the groups are nearly identically distributed, an
+approximation that works well in practice.
+.TP
+.B BHA: Bhattacharyya
+related to the mahalanobis distance, but makes no assumption of identically
+distributed groups. this metric, however, does not obey the triangle
+inequality. this assumes normally distributed points in each group.
+.TP
+.B HEL: Hellinger
+a variant of the bhattacharyya distance that uses the same overlap
+coefficient, but forms a metric with it differently, thus obeying the
+triangle inequality.
+.TP
+.B MIX: Mixture
+approximated bhattacharyya distance for two-dimensional scores only, which
+lays a grid onto the scores space and convolves each point as a unit impulse
+against a gaussian point spread function.
+.TP
+.B CHI: Chi-square
+uses a similar means to approximate density functions as the mixture metric,
+but attempts to calculate a chi-square statistic from the gridded data. this
+fails in practice due to the large number of zero-valued bins in the matrix.
+.SH AUTHOR
+Bradley Worley <geekysuavo@gmail.com>
+.SH COPYRIGHT
+Copyright \(co 2015 Bradley Worley.
+.br
+This is free software. You may redistribute copies of it under the terms of
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
+There is NO WARRANTY, to the extent permitted by law.
+.SH "SEE ALSO"
+.BR pca-bootstrap(1),
+.BR pca-dendrogram(1),
+.BR pca-ellipses(1),
+.BR pca-ellipsoids(1),
+.BR pca-overlap(1),
+.BR pca-stats(1),
+.BR pca-rand(1),
+.BR pca-maps(1)

@@ -1,0 +1,60 @@
+.\" -*- nroff -*-
+.ds g \" empty
+.ds G \" empty
+.de Tp
+.ie \\n(.$=0:((0\\$1)*2u>(\\n(.1u-\\n(.iu)) .TP
+.el .TP "\\$1"
+..
+.TH PCA-ELLIPSOIDS 1 "13 Jul 2015" "pca-utils version 20150713"
+.SH NAME
+pca-ellipsoids \- build 3D scores plots with confidence ellipsoids from scores
+.SH SYNOPSIS
+.B pca-ellipsoids
+[
+.B \-h
+]
+.LP
+.B pca-ellipsoids
+\-i \fIINFILE\fR [\fIOPTIONS\fR]
+.SH DESCRIPTION
+.PP
+Build a scores plot from PCA/PLS scores in \fBINFILE\fR. The 95% confidence
+ellipsoids are written to a text file that contains \fBgnuplot\fR-readable
+commands for plotting the scores with ellipsoids. The output script can be
+directly loaded (using the \fBload\fR command) into \fBgnuplot\fR.
+.TP
+\fB\-h\fR, \fB-\-help\fR
+display a short help message.
+.TP
+\fB\-i\fR, \fB\-\-input\fR \fIINFILE\fR
+scores list input file, formatted according to the list file exported from
+Umetrics SIMCA-P+ software. See pca-rand(1) for more information.
+.TP
+\fB\-1\fR, \fB\-\-component1\fR \fIPC1\fR
+percentage contribution of the total variance from principal component number
+one, for use with PCA scores plots.
+.TP
+\fB\-2\fR, \fB\-\-component2\fR \fIPC2\fR
+percentage contribution of the total variance from principal component number
+two, for use with PCA scores plots.
+.TP
+\fB\-3\fR, \fB\-\-component3\fR \fIPC3\fR
+percentage contribution of the total variance from principal component number
+three, for use with PCA scores plots.
+.SH AUTHOR
+Bradley Worley <geekysuavo@gmail.com>
+.SH COPYRIGHT
+Copyright \(co 2015 Bradley Worley.
+.br
+This is free software. You may redistribute copies of it under the terms of
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
+There is NO WARRANTY, to the extent permitted by law.
+.SH "SEE ALSO"
+.BR pca-bootstrap(1),
+.BR pca-dendrogram(1),
+.BR pca-distances(1),
+.BR pca-ellipses(1),
+.BR pca-overlap(1),
+.BR pca-stats(1),
+.BR pca-rand(1),
+.BR pca-maps(1)

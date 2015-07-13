@@ -1,0 +1,55 @@
+.\" -*- nroff -*-
+.ds g \" empty
+.ds G \" empty
+.de Tp
+.ie \\n(.$=0:((0\\$1)*2u>(\\n(.1u-\\n(.iu)) .TP
+.el .TP "\\$1"
+..
+.TH PCA-DENDROGRAM 1 "13 Jul 2015" "pca-utils version 20150713"
+.SH NAME
+pca-dendrogram \- build dendrograms from scores using parameterization
+.SH SYNOPSIS
+.B pca-dendrogram
+[
+.B \-h
+]
+.LP
+.B pca-dendrogram
+\-i \fIINFILE\fR [\fIOPTIONS\fR]
+.SH DESCRIPTION
+.PP
+Build a dendrogram from PCA/PLS scores in \fBINFILE\fR. The output tree is
+built from Mahalanobis distances between groups, and p-values reported on
+each node are calculated by comparing the Mahalanobis distance to an
+F-statistic through a series of scalings. The program uses a UPGMA algorithm.
+.TP
+\fB\-h\fR, \fB-\-help\fR
+display a short help message.
+.TP
+\fB\-i\fR, \fB\-\-input\fR \fIINFILE\fR
+scores list input file, formatted according to the list file exported from
+Umetrics SIMCA-P+ software. See pca-rand(1) for more information.
+.TP
+\fB\-o\fR, \fB\-\-output\fR \fIOUTFILE\fR
+filename of output postscript file to write to, instead of standard output.
+.TP
+\fB\-k\fR, \fB\-\-key\fR
+print key/legend symbols, identical to those printed by pca-ellipses(1),
+onto the tree leaf nodes in the postscript output file.
+.SH AUTHOR
+Bradley Worley <geekysuavo@gmail.com>
+.SH COPYRIGHT
+Copyright \(co 2015 Bradley Worley.
+.br
+This is free software. You may redistribute copies of it under the terms of
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
+There is NO WARRANTY, to the extent permitted by law.
+.SH "SEE ALSO"
+.BR pca-bootstrap(1),
+.BR pca-distances(1),
+.BR pca-ellipses(1),
+.BR pca-ellipsoids(1),
+.BR pca-overlap(1),
+.BR pca-stats(1),
+.BR pca-rand(1),
+.BR pca-maps(1)

@@ -1,0 +1,76 @@
+.\" -*- nroff -*-
+.ds g \" empty
+.ds G \" empty
+.de Tp
+.ie \\n(.$=0:((0\\$1)*2u>(\\n(.1u-\\n(.iu)) .TP
+.el .TP "\\$1"
+..
+.TH PCA-RAND 1 "13 Jul 2015" "pca-utils version 20150713"
+.SH NAME
+pca-rand \- generate scores data from pseudorandom numbers
+.SH SYNOPSIS
+.B pca-rand
+[
+.B \-h
+]
+.LP
+.B pca-rand
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+.PP
+Prints scores for a single group using values drawn from a bivariate normal
+pseudorandom number generator. The resulting points can then be scaled,
+rotated and translated at will. It's worthy of mention that the output
+of this program is capable of being directly read into the rest of the
+programs in pca-utils. See below for format information.
+.TP
+\fB\-h\fR, \fB-\-help\fR
+display a short help message.
+.TP
+\fB\-n\fR, \fB\-\-count\fR \fICOUNT\fR
+number of data points to generate.
+.TP
+\fB\-L\fR, \fB\-\-label\fR \fILABEL\fR
+name to assign to the group of points.
+.TP
+\fB\-H\fR, \fB\-\-header\fR
+print a file header as the first line written to standard output.
+.TP
+\fB\-u\fR, \fB\-\-mean\fR (\fIU1\fR,\fIU2\fR)
+center the group at \fIU1\fR,\fIU2\fR.
+.TP
+\fB\-v\fR, \fB\-\-var\fR (\fIV1\fR,\fIV2\fR)
+give the group variances of \fIV1\fR and \fIV2\fR.
+.TP
+\fB\-r\fR, \fB\-\-rotation\fR \fITHETA\fR
+rotate the group of points by \fITHETA\fR degrees.
+.SH FORMATTING
+.PP
+The pca-utils programs read in text files that have been formatted to match
+exported list files from Umetrics SIMCA-P+ software. However, you're not
+locked into SIMCA if you choose to use pca-utils. The pca-rand(1) utility
+is evidence of that. At its core, the format requirements are tab-delimited
+fields with no quotes. The first column is the row number, and totally
+discarded in the pca-utils programs. The second is the group name, used by
+pca-utils to assign points to groups. All remaining columns must be scores
+data columns.
+.PP
+A header is required at the first line of the input file. For an example
+header for 2D pca scores, use pca-rand(1) with the \fB\-\-header\fR option.
+.SH AUTHOR
+Bradley Worley <geekysuavo@gmail.com>
+.SH COPYRIGHT
+Copyright \(co 2015 Bradley Worley.
+.br
+This is free software. You may redistribute copies of it under the terms of
+the GNU General Public License <http://www.gnu.org/licenses/gpl.html>.
+There is NO WARRANTY, to the extent permitted by law.
+.SH "SEE ALSO"
+.BR pca-bootstrap(1),
+.BR pca-dendrogram(1),
+.BR pca-distances(1),
+.BR pca-ellipses(1),
+.BR pca-ellipsoids(1),
+.BR pca-overlap(1),
+.BR pca-stats(1),
+.BR pca-maps(1)
