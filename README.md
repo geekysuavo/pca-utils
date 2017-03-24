@@ -50,8 +50,7 @@ the manual pages.
 
 ## Licensing
 
-The **pca-utils** project is released under the [GNU GPL 3.0] (
-http://www.gnu.org/licenses/gpl-3.0.html)
+The **pca-utils** project is released under the [GNU GPL 3.0](LICENSE).
 
 The idea is to advance the state of the art in the field, so as long as you
 adhere to the requirements of the above license, just have fun with the code!
