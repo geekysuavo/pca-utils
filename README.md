@@ -1,3 +1,4 @@
+
 # pca-utils
 
 A set of utilities to quantify separations between classes of observations
@@ -33,16 +34,15 @@ This software is highly portable. As long as you have a recent enough glibc,
 pca-utils should compile and install without incident. You can build and
 install **pca-utils** as follows:
 
-> git clone git://github.com/geekysuavo/pca-utils.git
+```bash
+git clone git://github.com/geekysuavo/pca-utils.git
+cd pca-utils
+make
+sudo make install
+```
 
-> cd pca-utils
-
-> make
-
-> sudo make install
-
-By default, the **pca-utils** binaries will be installed into _/usr/bin_,
-and their manual pages will be installed into _/usr/share/man/man1_. If you
+By default, the **pca-utils** binaries will be installed into `/usr/bin`,
+and their manual pages will be installed into `/usr/share/man/man1`. If you
 need to install somewhere else, you'll need to modify the Makefile.
 
 For more information on how to use the **pca-utils** binaries, please consult
@@ -54,6 +54,4 @@ The **pca-utils** project is released under the [GNU GPL 3.0](LICENSE).
 
 The idea is to advance the state of the art in the field, so as long as you
 adhere to the requirements of the above license, just have fun with the code!
-
-*~ Brad.*
 
